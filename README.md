@@ -1,1 +1,1 @@
-Algorithms implemented in Python
+Common Algorithms in Python
