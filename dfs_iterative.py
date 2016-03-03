@@ -1,5 +1,7 @@
+#!/usr/bin/env python
 from collections import deque
 from collections import defaultdict
+
 
 class Graph(object):
     def __init__(self, noOfVertices):
@@ -7,7 +9,7 @@ class Graph(object):
         self._adjV = defaultdict()
         self._visited = []
 
-    def addEdge(self, vertex, neighbor):    
+    def addEdge(self, vertex, neighbor):
         self._adjV.setdefault(vertex, []).append(neighbor)
 
     def _dfs(self, startV):
@@ -29,10 +31,10 @@ class Graph(object):
     def dfs(self):
         for _ in range(self._noOfVertices):
             self._visited.append(False)
-    
+
         for vertex in range(self._noOfVertices):
             if not self._visited[vertex]:
-                self._dfs(vertex)                     
+                self._dfs(vertex)
 
 if __name__ == '__main__':
     graph = Graph(5)
