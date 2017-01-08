@@ -3,30 +3,30 @@ from collections import defaultdict
 
 
 class Graph(object):
-    def __init__(self, noOfVertices):
-        self._noOfVertices = noOfVertices
-        self._adjV = defaultdict()
+    def __init__(self, vertices):
+        self._vertices = vertices
+        self._adjacencies = defaultdict()
 
     def addEdge(self, vertex, neighbor):
-        self._adjV.setdefault(vertex, []).append(neighbor)
+        self._adjacencies.setdefault(vertex, []).append(neighbor)
 
-    def _dfs(self, startV, visited):
-        visited[startV] = True
-        print startV
+    def _dfs(self, start_vertex, visited):
+        visited[start_vertex] = True
+        print(start_vertex)
 
-        for v in self._adjV[startV]:
+        for v in self._adjacencies[start_vertex]:
             if not visited[v]:
                 visited[v] = True
                 self._dfs(v, visited)
 
-    def dfs(self, startV):
+    def dfs(self, start_vertex):
         visited = []
-        for _ in range(self._noOfVertices):
+        for _ in range(self._vertices):
             visited.append(False)
 
-        visited[startV] = True
+        visited[start_vertex] = True
 
-        self._dfs(startV, visited)
+        self._dfs(start_vertex, visited)
 
 if __name__ == '__main__':
     graph = Graph(5)
